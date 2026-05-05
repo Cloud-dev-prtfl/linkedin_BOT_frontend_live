@@ -564,6 +564,61 @@ input {
   text-wrap: pretty;
 }
 
+.bot-message-paragraph {
+  margin: 0;
+}
+
+.bot-message-text p {
+  margin: 0;
+}
+
+.bot-message-text p + p,
+.bot-message-text p + ol,
+.bot-message-text p + ul,
+.bot-message-text ol + p,
+.bot-message-text ul + p,
+.bot-message-text ol + ol,
+.bot-message-text ul + ul,
+.bot-message-text ol + ul,
+.bot-message-text ul + ol {
+  margin-top: 8px;
+}
+
+.bot-message-text ol,
+.bot-message-text ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.bot-message-text li + li {
+  margin-top: 6px;
+}
+
+.bot-message-text strong {
+  display: block;
+  margin: 2px 0 6px;
+  color: #151515;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.bot-message-text em {
+  color: #6e4b39;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.bot-message-text li {
+  line-height: 1.55;
+}
+
+.bot-message-text li::marker {
+  color: #6e4b39;
+  font-weight: 800;
+}
+
 .user-bubble {
   min-height: 49px;
   max-width: 238px;

@@ -17,14 +17,16 @@ const initialMessages = [
     id: 2,
     sender: 'bot',
     text: "Hi, I'm Shubham. Ask me anything you would like to know about my LinkedIn profile.",
+    html: '',
     timestamp: '',
   },
 ];
 
-const createMessage = (sender, text) => ({
+const createMessage = (sender, text, html = '') => ({
   id: crypto.randomUUID(),
   sender,
   text,
+  html,
   timestamp: TIMESTAMP_FORMATTER.format(new Date()),
 });
 
@@ -69,12 +71,14 @@ export function ChatWindow() {
 
       const payload = await response.json();
       const botReply = (payload.response ?? '').trim();
+      const botReplyHtml = typeof payload.response_html === 'string' ? payload.response_html : '';
 
       setMessages((currentMessages) => [
         ...currentMessages,
         createMessage(
           'bot',
           botReply || "I couldn't find an answer for that in the portfolio data.",
+          botReplyHtml,
         ),
       ]);
     } catch (error) {
